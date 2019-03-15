@@ -25,6 +25,14 @@ public class Math {
 		double total = java.lang.Math.sqrt(v1);
 		return total;
 	}
+	public double fracao(double v1) {
+		double total = v1 / 10;
+		return total;
+	}
+	public double porcent(double v1,double v2) {
+		double total = (v1*v2)/100;
+		return total;
+	}
 	
 
 }

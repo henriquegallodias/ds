@@ -42,7 +42,7 @@ public class Window extends JFrame {
 	JButton jbmmais = new JButton("M+");
 	JButton jbmmenos = new JButton("M-");
 	
-	JButton jbponto = new JButton(".");
+	JButton jbponto = new JButton(",");
 	JButton jbpor = new JButton("%");
 	JButton jbfr = new JButton("1/x");
 	
@@ -229,7 +229,7 @@ public class Window extends JFrame {
 	    		v2 = Double.parseDouble(txta.getText());
 	    		
 	    		if(sinal.equals("soma")) {
-	    			txta.setText(math.soma(v1,v2) + "");
+	    			txta.setText(math.soma(v1,v2) + "" + "");
 	    		}
 	    		else if(sinal.equals("menos")) {
 	    			txta.setText(math.menos(v1, v2) + "");
@@ -242,7 +242,13 @@ public class Window extends JFrame {
 	    		}
 	    		else if(sinal.equals("raiz")) {
 	    			txta.setText(math.raiz(v1) + "");
+	    		}	
+	    		else if(sinal.equals("fração")) {
+	    			txta.setText(math.fracao(v1)+"");
 	    		}
+	    		else if(sinal.equals("porcentagem")) {
+	    			txta.setText(math.porcent(v1, v2) + "");
+	    		}	
 	    	}
 	    });
 	    
@@ -278,24 +284,66 @@ public class Window extends JFrame {
 	    
 	    paine.add(jbponto);
 	    jbponto.setBounds(130, 210, 60, 25);
+	    jbponto.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		if(txta.getText().equals("0")) {
+	    			txta.setText(",");
+	    		} else {
+	    			txta.setText(txta.getText() + ",");
+	    		}
+	    	}
+	    });
 	    
 	    paine.add(jbpor);
 	    jbpor.setBounds(250, 135, 60, 25);
+	    jbpor.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		v1 = Double.parseDouble(txta.getText());
+	    		sinal = "porcentagem";
+	    		txta.setText("0");
+	    			
+	    		}
+	    });
 	    
 	    paine.add(jbfr);
 	    jbfr.setBounds(250, 160, 60, 25);
+	    jbfr.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		v1 = Double.parseDouble(txta.getText());
+	    		sinal = "fração";
+	    		txta.setText("0");
+	    	}
+	    });
 	    
 	    paine.add(jbseta);
 	    jbseta.setBounds(10,110,60,25);
+	    jbseta.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent evt) {
+	    		String str = txta.getText();
+	    	    StringBuilder w = new StringBuilder(str);
+	    		str = String.valueOf( w.deleteCharAt(str.length() -1));
+	    		txta.setText(str);
+	    	}
+	    });
 	    
 	    paine.add(jbce);
 	    jbce.setBounds(70, 110, 60, 25);
 	    
 	    paine.add(jbc);
 	    jbc.setBounds(130, 110, 60, 25);
+	    jbc.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		txta.setText("0");
+	    	}
+	    });
 	    
 	    paine.add(jbmm);
 	    jbmm.setBounds(190, 110, 60, 25);
+	    jbmm.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		txta.setText("-");
+	    	}
+	    });
 	    
 	    paine.add(jbraiz);
 	    jbraiz.setBounds(250,110,60,25);

@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -52,6 +53,8 @@ public class Window extends JFrame {
 	JButton jbraiz = new JButton("√");
 	JButton jbmm = new JButton("±");
 	
+	JComboBox jcaexibir = new JComboBox();
+	
 	Math math = new Math();
 	String sinal = null;
 	double v1 = 0,v2 = 0;
@@ -68,6 +71,11 @@ public class Window extends JFrame {
 	    
 	    paine.add(jbexibir);
 	    jbexibir.setBounds(10, 4, 100, 25);//define o tamanho e posição do atributo
+	    jbexibir.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    	}
+	    });
 	    
 	    paine.add(jbeditar);
 	    jbeditar.setBounds(110, 4, 100, 25);
@@ -199,18 +207,43 @@ public class Window extends JFrame {
 	    
 	    paine.add(jbmc);
 	    jbmc.setBounds(10, 85, 60, 25);
+	    jbmc.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    	}
+	    });
 	    
 	    paine.add(jbms);
 	    jbms.setBounds(70, 85, 60, 25);
+	    jbms.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    	}
+ 	    });
 	    
 	    paine.add(jbmr);
 	    jbmr.setBounds(130, 85, 60, 25);
+	    jbmr.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    	}
+	    });
 	    
 	    paine.add(jbmmais);
 	    jbmmais.setBounds(190,85,60,25);
+	    jbmmais.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    	}
+	    });
 	    
 	    paine.add(jbmmenos);
 	    jbmmenos.setBounds(250, 85, 60, 25);
+	    jbmmenos.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    	}
+	    });
 	    
 	    paine.add(jbplus);
 	    jbplus.setBounds(190, 210, 60, 25);
@@ -328,6 +361,11 @@ public class Window extends JFrame {
 	    
 	    paine.add(jbce);
 	    jbce.setBounds(70, 110, 60, 25);
+	    jbce.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		txta.setText("0");
+	    	}
+	    });
 	    
 	    paine.add(jbc);
 	    jbc.setBounds(130, 110, 60, 25);

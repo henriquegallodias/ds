@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JbdUtil {
+public class JdbUtil {
 	private static String connectionDriverClass="com.mysql.cj.jdbc.Driver";
 	private static String connectionUrl = "jdbc:mysql://localhost/java?useTimezone=true&serverTimezone=UTC";
 	private static String connectionUsername="root";
@@ -13,14 +13,14 @@ public class JbdUtil {
 
 	public static Connection getConnection() throws SQLException, ClassNotFoundException{
 		
-		if(JbdUtil.conn != null) {
-			return JbdUtil.conn;
+		if(JdbUtil.conn != null) {
+			return JdbUtil.conn;
 		}else {
 			Class.forName(connectionDriverClass);
 			return DriverManager.getConnection(
-					JbdUtil.connectionUrl,
-					JbdUtil.connectionUsername,
-					JbdUtil.connectionPassword);
+					JdbUtil.connectionUrl,
+					JdbUtil.connectionUsername,
+					JdbUtil.connectionPassword);
 		}
 		
 	}

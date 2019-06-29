@@ -11,11 +11,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import Model.Alunos;
-import Controller.AlunosJdbcDAO;
-import Controller.JbdUtil;;
+import Model.Professores;
+import Controller.ProfessorJdbcDAO;
+import Controller.JdbUtil;;
 
-public class AlunosExec extends JFrame{
+public class ProfessorExec extends JFrame{
 	
 		JLabel lblNome = new JLabel("NOME");
 		JLabel lblEndereco = new JLabel("ENDEREÇO");
@@ -27,10 +27,10 @@ public class AlunosExec extends JFrame{
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		
-		Alunos alunos = new Alunos();
+		Professores profs = new Professores();
 		
-		public AlunosExec(){
-			super("Tela");
+		public ProfessorExec(){
+			super("Cadastro Professor");
 			
 			Container paine = this.getContentPane();
 			paine.setLayout(null);
@@ -62,14 +62,14 @@ public class AlunosExec extends JFrame{
 					// TODO Auto-generated method stub
 					try {
 						
-						alunos.setNome(txtNome.getText());
-						alunos.setEndereco(txtEnd.getText());
-						alunos.setBairro(txtBairro.getText());
+						profs.setNome(txtNome.getText());
+						profs.setEndereco(txtEnd.getText());
+						profs.setBairro(txtBairro.getText());
 						
-						Connection connection = JbdUtil.getConnection();
-						AlunosJdbcDAO alunosJdbcDao = new AlunosJdbcDAO(connection);
+						Connection connection = JdbUtil.getConnection();
+						ProfessorJdbcDAO professorJdbcDao = new ProfessorJdbcDAO(connection);
 						
-						alunosJdbcDao.salvar(alunos);
+						professorJdbcDao.salvar(profs);
 					} catch (Exception ex) {
 						ex.printStackTrace();
 					}
@@ -81,10 +81,10 @@ public class AlunosExec extends JFrame{
 			this.setSize(400, 400);
 			this.setVisible(true);
 			this.setResizable(false);
-			paine.setBackground(Color.blue);
+			paine.setBackground(Color.green);
 		}
 		
 		public static void main(String args[]) {
-			AlunosExec ex = new AlunosExec();
+			ProfessorExec px = new ProfessorExec();
 		}
 }
